@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>Pharma Gather</h1>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>ID: <span id="pId">1234</span></p>
+            <p>Name: <span id="pName"> Mahdi Saeikhalili</span></p>
+            <p>Phone: <span id="pPhone"> (203)446-6750</span></p>
+            <p>Address: <span id="pAddress"> 123 Fake Ave, Shelton, CT</span></p>
+            <p>DOB: <span id="pDOB"> 5/18/1980</span></p>
+            <p>Docotr Name: <span id="pDocName">Dr Feluchi</span></p>
+            <p>Issue Date: <span id="pIssueDate">4/19/2020</span></p>
+            <p>List of medicines:</p>
+            <p>
+                <span id="medList">Medicine1, Medicine2, Medicine3</span>
+            </p>
+            <p>Status: <span id="pStatus">New Prescription</span></p>
+            <svg id="barcode"></svg>
+            <button id="printButton">Print</button>
+        </div>
+    </div>
+    <div class="content">
+        <h3>
+            <span id="recieved">Recived Prescriptions</span> |
+            <span id="loaded" class="disabled">Loaded Prescriptions</span> |
+            <span id="picked" class="disabled">Picked Up Prescriptions</span>
+        </h3>
+        <form id="add-cafe-form"></form>
+
+        <ul id="recieved-prescription-list"></ul>
+        <ul id="loaded-prescription-list"></ul>
+        <ul id="picked-prescription-list"></ul>
+    </div>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCRl9wNtAyRDJzKdL3UocU5iPZ2oIFUtPg",
+            authDomain: "pharma-gather.firebaseapp.com",
+            databaseURL: "https://pharma-gather.firebaseio.com",
+            projectId: "pharma-gather",
+        };
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
